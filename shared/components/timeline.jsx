@@ -14,7 +14,7 @@ var moment = require('moment');
 //</div>
 
 var Meetup = exports.Meetup = createClass({
-  render: function () {
+  render() {
     var m = this.props.meetup;
     var cls = this.props.idx % 2 !== 0 ? 'timeline-inverted' : '';
 
@@ -39,13 +39,11 @@ var Meetup = exports.Meetup = createClass({
 
 
 exports.Timeline = createClass({
-  render: function () {
+  render() {
     return (
       <ul className='timeline'>
         <li><h3 className='timeline-header'>Previous Events</h3></li>
-        {this.props.meetups.map(function(m, i) {
-          return <Meetup key={m.date} idx={i} meetup={m} />
-        })}
+        {this.props.meetups.map((m, i) => <Meetup key={m.date} idx={i} meetup={m} /> )}
       </ul>
     );
   }

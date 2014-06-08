@@ -5,7 +5,7 @@ var React = require('react');
 var createClass = React.createClass;
 
 module.exports = createClass({
-  render: function () {
+  render() {
     return (
       <div className='row' id='sidebar'>
         <div className='col-md-4'>

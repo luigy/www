@@ -10,20 +10,13 @@ var hashRgx = /#[\d\w_]+/g;
 var handleRgx = /(^|[^@\w])@(\w{1,15})\b/g;
 
 function parseText(text) {
-  // Replace links
-  return text.replace(linkRgx, function (text) {
-    return '<a href=\'' + text + '\' target=\'_blank\'>' + text + '</a>';
-  })
-  // Replace hash tags
-  .replace(hashRgx, function (text) {
-    var comp = encodeURIComponent(text);
-    return '<a href=\'https://twitter.com/#!/search/?q=' + comp + '&src=hash\' target=\'_blank\'>' +
-      text + '</a>';
-  })
-  // Replace twitter handles
-  .replace(handleRgx, function (text) {
-    return '<a href=\'https://twitter.com/' + text.trim() + '\' target=\'_blank\'>' + text + '</a>';
-  });
+  return text
+    // Replace links
+    .replace(linkRgx, text => `<a href="${text}" target="_blank">${text}</a>` )
+    // Replace hash tags
+    .replace(hashRgx, text => `<a href="https://twitter.com/#!/search/?q=${encodeURIComponent(text)}&src=hash" target="_blank">${text}</a>` )
+    // Replace twitter handles
+    .replace(handleRgx, text => `<a href="https://twitter.com/${text.trim()}" target="_blank">${text}</a>` );
 }
 
 var Tweet = exports.Tweet = createClass({
@@ -40,7 +33,7 @@ var Tweet = exports.Tweet = createClass({
 
         <div className="media-body">
           <h5 className="media-heading">
-            <a href={'https://twitter.com/' + user.screen_name}>
+            <a href={`https://twitter.com/${user.screen_name}`}>
               <strong>{user.screen_name}</strong>
             </a>
           </h5>
@@ -57,9 +50,7 @@ exports.Twitter = createClass({
       <div className="panel" id="midCol">
         <div className="panel-heading twitter-heading">#nychtml5</div>
         <div className="panel-body tweets">
-          {this.props.tweets.slice(0, 10).map(function(t) {
-            return <Tweet key={t.id} tweet={t} />
-          })}
+          {this.props.tweets.slice(0, 10).map(t => <Tweet key={t.id} tweet={t} /> )}
         </div>
       </div>
     );

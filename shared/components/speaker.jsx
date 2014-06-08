@@ -5,13 +5,11 @@ var React = require('react');
 var createClass = React.createClass;
 
 var Speaker = exports.Speaker = createClass({
-  render: function() {
+  render() {
     var speaker = this.props.speaker;
     var twitter = speaker.twitter;
-    var url = twitter ? 'https://twitter.com/' + twitter : speaker.url;
-    var img = speaker.image ? '/images/speakers/' + speaker.image : 'http://placekitten.com/150/150';
-
-    if (!url) url = '#';
+    var url = twitter ? `https://twitter.com/${twitter}` : (speaker.url || '#');
+    var img = speaker.image ? `/images/speakers/${speaker.image}` : 'http://placekitten.com/150/150';
 
     return (
       <div className="media speaker">
@@ -33,12 +31,10 @@ var Speaker = exports.Speaker = createClass({
 });
 
 exports.SpeakerList = createClass({
-  render: function() {
+  render() {
     return (
       <div className={this.props.className}>
-        {(this.props.speakers || []).map(function(s) {
-          return <Speaker key={s.name} speaker={s} />
-        })}
+        {(this.props.speakers || []).map(s => <Speaker key={s.name} speaker={s} />)}
       </div>
     );
   }

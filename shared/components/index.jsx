@@ -10,7 +10,7 @@ var Twitter = require('./twitter.jsx').Twitter;
 var Timeline = require('./timeline.jsx').Timeline;
 
 var Head = createClass({
-  render: function() {
+  render() {
 
     var dev = [
       '/vendor/bootstrap.min.css',
@@ -23,7 +23,7 @@ var Head = createClass({
 
     // just css link actually
     function toLink(src, ndx) {
-      return <link href={'/css' + src} rel="stylesheet" key={ndx} />;
+      return <link href={`/css${src}`} rel="stylesheet" key={ndx} />;
     }
 
     return (

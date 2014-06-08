@@ -7,7 +7,7 @@ var SpeakerList = require('./speaker').SpeakerList;
 var moment = require('moment');
 
 var Logistics = createClass({
-  render: function() {
+  render() {
     return (
       <div className="col-md-6" id="logistics">
         <h4 className="heading">
@@ -52,7 +52,7 @@ var Logistics = createClass({
 });
 
 module.exports = createClass({
-  render: function () {
+  render() {
     return (
       <header className="masthead">
         <div className="container">
