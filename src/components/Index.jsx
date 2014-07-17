@@ -4,12 +4,11 @@
 var is = require('is-predicate');
 var _ = require('lodash');
 var React = require('react');
-var createClass = React.createClass;
 var Header = require('./header.jsx');
-var Twitter = require('./twitter.jsx').Twitter;
-var Timeline = require('./timeline.jsx').Timeline;
+var Twitter = require('./twitter.jsx');
+var Timeline = require('./timeline.jsx');
 
-var Head = createClass({
+var Head = React.createClass({
   render: function() {
 
     var dev = [
@@ -74,7 +73,7 @@ var Head = createClass({
 //  }
 //});
 
-module.exports = createClass({
+module.exports = React.createClass({
   render: function() {
     var goog = "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){" +
       "(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"+

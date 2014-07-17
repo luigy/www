@@ -4,13 +4,17 @@
   margin 20px 0
   font-family 'Open Sans',Arial,Helvetica,Sans-Serif !important
 
+  .row:first-child
+    /*background-color html5-ltorange*/
+
   .container
     background-color #fff
-    box-shadow 0 0 10px rgba(247, 43, 43, 0.35)
-    padding 20px
+    box-shadow 0 2px 4px rgba(0, 0, 0, 0.26)
+    padding 8px 24px
 
   img.brand
     height 125px
+    padding: 8px 24px 8px 0;
 
   .page-header
     margin 0
@@ -50,11 +54,14 @@
     border-bottom none
 
 .speaker-photo
-  max-height 100px
+  height 48px
+  width 48px
+  margin-right 24px !important
+  border-radius 50%
   overflow hidden
 
   img
-    width 100px
+    width 48px
 
 .panel-body
 
@@ -167,7 +174,7 @@ iframe
     background-color #F8F7F5
 
 img.grayscale
-  filter url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale") /* Firefox 10+, Firefox on Android */
+  /* filter url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="grayscale"><feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/></filter></svg>#grayscale')*/ /* Firefox 10+, Firefox on Android */
   filter gray /* IE6-9 */
   -webkit-filter grayscale(100%) /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 
@@ -216,14 +223,27 @@ a .fa
 
 .timeline .timeline-header
   text-align center
-  background bg
+
+.timeline-panel > .timeline-heading > h4
+  margin 0
+  line-height 1.5
+  padding-top 10px
+.timeline-panel > .timeline-heading > p
+  margin 0
+
+.timeline-panel > .timeline-heading
+  background-color #e51c23
+  line-height 40px
+  padding 0 24px
 
 .timeline > li > .timeline-panel {
   width: 46%;
+  position relative
   float: left;
-  border: 1px solid #d4d4d4;
+  background-color white
+  /*border: 1px solid #d4d4d4;*/
   border-radius: 2px;
-  padding: 20px;
+  /*padding: 20px;*/
   position: relative;
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
@@ -299,12 +319,19 @@ a .fa
   background-color: #5bc0de !important;
 }
 .timeline-title {
-  margin-top: 0;
-  color: inherit;
+  margin-top 0
+  color #536dfe
 }
+.timeline-title a
+  color white !important
+
 .timeline-date {
-  color #777
+  color rgba(255,255,255,0.56)
+
 }
+.timeline-body
+  padding 0 24px
+
 .timeline-body > p,
 .timeline-body > ul {
   margin-bottom: 0;
